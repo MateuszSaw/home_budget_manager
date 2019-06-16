@@ -20,7 +20,7 @@ public class Income {
     private Long id;
 
     private double amount;
-
+    @Enumerated(EnumType.STRING)
     private IncomeCategory category;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")

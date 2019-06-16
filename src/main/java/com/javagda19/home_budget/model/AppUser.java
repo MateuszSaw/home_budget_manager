@@ -24,13 +24,13 @@ public class AppUser {
     @ManyToMany
     private Set<UserRole> roles;
 
-    @OneToMany
+    @OneToMany (mappedBy = "appUser")
     private List<Income> incomeList;
 
-    @OneToMany
+    @OneToMany (mappedBy = "appUser" )
     private List<Expenditure> expenditureList;
 
-    @OneToMany
+    @OneToMany (mappedBy = "appUser")
     private List<UpcomingPayments> upcomingPaymentsList;
 
     @Override
