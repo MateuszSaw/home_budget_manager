@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:include="templates :: headers"></th:block>
+    <title>User Login Page</title>
+</head>
+<body>
+<th:block th:include="templates :: navigator_bar"></th:block>
+<!--<div class="d-flex align-items-center">-->
+<div class="container main-window">
+    <form th:action="@{/login}" th:method="post">
+        <div class="row colored-row">
+            <div class="col-12">
+                <h2>User Login Page</h2>
+            </div>
+        </div>
+        <div class="row colored-row">
+            <div class="col-6">
+                <label for="input-email">Email:</label>
+            </div>
+            <div class="col-6">
+                <input class="form-control" id="input-email" name="username" required>
+            </div>
+        </div>
+        <div class="row colored-row">
+            <div class="col-6">
+                <label for="input-password">Password:</label>
+            </div>
+            <div class="col-6">
+                <input class="form-control" type="password" id="input-password" name="password" required>
+            </div>
+        </div>
+        <div class="row colored-row">
+            <div class="offset-2 col-8"> <!--odsuń od lewej strony o 2 kolumny -->
+                <input class="form-control" type="submit" value="Login">
+            </div>
+        </div>
+    </form>
+</div>
+<!--</div>-->
+<th:block th:include="templates :: footer_scripts"></th:block>
+</body>
+</html>

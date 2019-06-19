@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<th:block th:fragment="headers">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/css/style.css}">
+</th:block>
+
+<th:block th:fragment="footer_scripts">
+    <script th:href="@{/webjars/jquery/3.3.1-1/jquery.min.js}"></script>
+    <script th:href="@{/webjars/popper.js/1.14.4/popper.min.js}"></script>
+    <script th:href="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+</th:block>
+
+<th:block th:fragment="navigator_bar">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Home Budget Manager</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" th:href="@{/}">Home</a>
+            <a class="p-2 text-dark" sec:authorize="hasRole('ADMIN')" th:href="@{/admin/user/list}">User list</a>
+        </nav>
+        <a class="btn btn-outline-primary" sec:authorize="!isAuthenticated()" th:href="@{/login}">Login</a>
+        <a class="btn btn-outline-primary" sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a>
+        <a class="btn btn-outline-primary" sec:authorize="!isAuthenticated()" th:href="@{/user/register}">Register</a>
+    </div>
+</th:block>
+
+</html>

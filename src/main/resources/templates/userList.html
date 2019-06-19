@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:include="templates :: headers"></th:block>
+    <title>User List Page</title>
+</head>
+<body>
+<th:block th:include="templates :: navigator_bar"></th:block>
+<div class="container main-window">
+    <div class="row colored-row">
+        <div class="col-12">
+            <h2>User List</h2>
+        </div>
+    </div>
+    <div class="row colored-row">
+        <div class="col-1">Id</div>
+        <div class="col-2">Email</div>
+        <div class="col-5">Roles</div>
+        <div class="col-4">Actions</div>
+    </div>
+    <div class="row colored-row" th:each="user : ${userList}">
+        <div class="col-1" th:text="${user.getId()}"></div>
+        <div class="col-2" th:text="${user.getEmail()}"></div>
+        <div class="col-5" th:text="${user.getRoles()}"></div>
+        <div class="col-4">
+            -
+        </div>
+    </div>
+</div>
+<th:block th:include="templates :: footer_scripts"></th:block>
+</body>
+</html>
