@@ -28,7 +28,13 @@
                         <a class="nav-link" sec:authorize="hasRole('ADMIN')" th:href="@{/admin/user/list}">Users</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/income/list}">Income</a>
+                        <a class="nav-link" sec:authorize="hasAnyRole('ADMIN','USER')" th:href="@{/income/list}">Income</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" sec:authorize="hasAnyRole('ADMIN','USER')" th:href="@{/expenditure/list}">Expenditure</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" sec:authorize="hasAnyRole('ADMIN','USER')" th:href="@{/upcomingPayments/list}">Upcoming Payment</a>
                     </li>
                     </li>
                     <li class="nav-item">

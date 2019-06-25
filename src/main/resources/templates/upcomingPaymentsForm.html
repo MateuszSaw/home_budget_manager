@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <th:block th:include="templates :: headers"></th:block>
-    <title>Update Income</title>
+    <title>Add new Upcoming Payments</title>
 </head>
 <body>
-</div>
 <th:block th:include="templates :: navigator_bar"></th:block>
 <div class="container">
-    <form class="form" th:action="@{/income/update}" th:method="post" th:object="${income}">
-        <div class="form-group">
-            <input id="id" type="text" class="form-control"  th:field="*{id}" hidden>
+    <form class="form" th:action="@{/upcomingPayments/save}" th:method="post" th:object="${newUpcomingPayments}">
+        <div class="row colored-row">
+            <div class="col-12">
+                <h2>Add new</h2>
+            </div>
         </div>
         <div class="row colored-row">
             <div class="col-2">
@@ -27,10 +28,11 @@
             </div>
             <div class="col-10">
                 <select id="cat" class="form-control" th:field="*{category}">
-                    <option th:each="categoryT : ${incomeTypes}" th:value="${categoryT}" th:text="${categoryT}">
+                    <option th:each="categoryT : ${expenditureTypes}" th:value="${categoryT}" th:text="${categoryT}">
                 </select>
             </div>
-
+        </div>
+        <div class="row colored-row">
             <div class="col-2">
                 <label for="note">Note:</label>
             </div>
@@ -40,7 +42,7 @@
         </div>
         <div class="row colored-row">
             <div class="offset-2 col-8">
-                <input class="form-control" type="submit" value="Update">
+                <input class="form-control" type="submit" value="Add">
             </div>
         </div>
     </form>

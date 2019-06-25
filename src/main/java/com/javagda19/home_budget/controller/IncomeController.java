@@ -53,7 +53,7 @@ public class IncomeController {
         return "redirect:/income/list";
     }
     @GetMapping(path = "/update")
-    public String updateForm(@RequestParam(name = "incomeId") Long id, Model model){
+    public String updateIncomeForm(@RequestParam(name = "incomeId") Long id, Model model){
         Optional<Income> incomeOptional = incomeService.getIncomeById(id);
         model.addAttribute("incomeTypes", IncomeCategory.values());
 

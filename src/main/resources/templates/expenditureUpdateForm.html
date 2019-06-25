@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <th:block th:include="templates :: headers"></th:block>
-    <title>Update Income</title>
+    <title>Update Expenditure</title>
 </head>
 <body>
 </div>
 <th:block th:include="templates :: navigator_bar"></th:block>
 <div class="container">
-    <form class="form" th:action="@{/income/update}" th:method="post" th:object="${income}">
+    <form class="form" th:action="@{/expenditure/update}" th:method="post" th:object="${expenditure}">
         <div class="form-group">
-            <input id="id" type="text" class="form-control"  th:field="*{id}" hidden>
+            <input id="id" type="text" class="form-control" th:field="*{id}" hidden>
         </div>
         <div class="row colored-row">
             <div class="col-2">
@@ -27,7 +27,7 @@
             </div>
             <div class="col-10">
                 <select id="cat" class="form-control" th:field="*{category}">
-                    <option th:each="categoryT : ${incomeTypes}" th:value="${categoryT}" th:text="${categoryT}">
+                    <option th:each="categoryT : ${expenditureTypes}" th:value="${categoryT}" th:text="${categoryT}">
                 </select>
             </div>
 
