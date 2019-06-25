@@ -19,5 +19,4 @@ public class AdminUserController {
         model.addAttribute("userList", userService.getAllUsers());
         return "userList";
     }
-
 }

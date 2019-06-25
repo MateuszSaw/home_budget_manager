@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:include="templates :: headers"></th:block>
+    <title>Add new Income</title>
+</head>
+<body>
+<th:block th:include="templates :: navigator_bar"></th:block>
+<div class="container">
+    <form class="form" th:action="@{/income/save}" th:method="post" th:object="${newIncome}">
+        <div class="row colored-row">
+            <div class="col-12">
+                <h2>Add new</h2>
+            </div>
+        </div>
+        <div class="row colored-row">
+            <div class="col-2">
+                <label for="note">Amount:</label>
+            </div>
+            <div class="col-10">
+                <input class="form-control" id="amount" name="amount" required th:field="*{amount}">
+            </div>
+        </div>
+        <div class="row colored-row">
+            <div class="col-2">
+                <label for="cat">Category:</label>
+            </div>
+            <div class="col-10">
+                <select id="cat" class="form-control" th:field="*{category}">
+                    <option th:each="categoryT : ${incomeTypes}" th:value="${categoryT}" th:text="${categoryT}">
+                </select>
+            </div>
+        </div>
+        <div class="row colored-row">
+            <div class="col-2">
+                <label for="note">Note:</label>
+            </div>
+            <div class="col-10">
+                <input class="form-control" id="note" name="note" th:field="*{note}">
+            </div>
+        </div>
+        <div class="row colored-row">
+            <div class="offset-2 col-8">
+                <input class="form-control" type="submit" value="Add">
+            </div>
+        </div>
+    </form>
+</div>
+<th:block th:include="templates :: footer_scripts"></th:block>
+</body>
+</html>
