@@ -7,38 +7,34 @@
 </head>
 <body>
 <th:block th:include="templates :: navigator_bar"></th:block>
-<!--<div class="d-flex align-items-center">-->
-<div class="container main-window">
-    <form th:action="@{/login}" th:method="post">
-        <div class="row colored-row">
-            <div class="col-12">
-                <h2>User Login Page</h2>
+<div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Sign In</h5>
+                        <form class="form-signin" th:action="@{/login}" th:method="post">
+                            <div class="form-label-group">
+                                <input id="input-email" name="username" class="form-control" placeholder="Email address" required>
+                                <label for="input-email">Email address</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="input-password" name="password" class="form-control" placeholder="Password" required autofocus>
+                                <label for="input-password">Password</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox mb-3">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Remember password</label>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row colored-row">
-            <div class="col-6">
-                <label for="input-email">Email:</label>
-            </div>
-            <div class="col-6">
-                <input class="form-control" id="input-email" name="username" required>
-            </div>
-        </div>
-        <div class="row colored-row">
-            <div class="col-6">
-                <label for="input-password">Password:</label>
-            </div>
-            <div class="col-6">
-                <input class="form-control" type="password" id="input-password" name="password" required>
-            </div>
-        </div>
-        <div class="row colored-row">
-            <div class="offset-2 col-8"> <!--odsuń od lewej strony o 2 kolumny -->
-                <input class="form-control" type="submit" value="Login">
-            </div>
-        </div>
-    </form>
 </div>
-<!--</div>-->
 <th:block th:include="templates :: footer_scripts"></th:block>
 </body>
 </html>

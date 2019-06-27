@@ -7,48 +7,37 @@
 </head>
 <body>
 <th:block th:include="templates :: navigator_bar"></th:block>
-<!--<div class="d-flex align-items-center">-->
-<div class="container main-window"> <!-- Główny element bootstrapa -->
-    <form th:action="@{/user/register}" th:method="post">
-        <div class="row colored-row"> <!-- wiersz -->
-            <div class="col-12"> <!-- podział wiersza na kolumny-->
-                <!-- 12 to max, czyli zajmujemy całą przestrzeń -->
-                <h2>User Register Page</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Register</h5>
+                    <form class="form-signin" th:action="@{/user/register}" th:method="post">
+                        <div class="form-label-group">
+                            <input id="input-email" name="username" type="email" class="form-control" placeholder="Email address" required>
+                            <label for="input-email">Email address</label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" id="input-password" name="password" class="form-control" placeholder="Password" required autofocus>
+                            <label for="input-password">Password</label>
+                        </div>
+                        <div class="form-label-group">
+
+                            <input type="password" id="input-password-confirm" name="password-confirm" class="form-control" placeholder="Password confirm" required autofocus>
+                            <label for="input-password-confirm">Password</label>
+                        </div>
+
+
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="row colored-row">
-            <div class="col-6">
-                <label for="input-email">Email:</label>
-            </div>
-            <div class="col-6">
-                <input class="form-control" id="input-email" name="username" required>
-            </div>
-        </div>
-        <div class="row colored-row">
-            <div class="col-6">
-                <label for="input-password">Password:</label>
-            </div>
-            <div class="col-6">
-                <input class="form-control" type="password" id="input-password" name="password" required>
-            </div>
-        </div>
-        <div class="row colored-row">
-            <div class="col-6">
-                <label for="input-password-confirm">Password confirm:</label>
-            </div>
-            <div class="col-6">
-                <input class="form-control" type="password" id="input-password-confirm" name="password-confirm"
-                       required>
-            </div>
-        </div>
-        <div class="row colored-row">
-            <div class="offset-2 col-8"> <!--odsuń od lewej strony o 2 kolumny -->
-                <input class="form-control" type="submit" value="Register">
-            </div>
-        </div>
-    </form>
+    </div>
 </div>
-<!--</div>-->
 <th:block th:include="templates :: footer_scripts"></th:block>
 </body>
 </html>
