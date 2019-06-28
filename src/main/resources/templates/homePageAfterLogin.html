@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:include="templates :: headers"></th:block>
+    <title>Home Page After Login</title>
+</head>
+<body>
+<th:block th:include="templates :: navigator_bar"></th:block>
+<div class="card-columns">
+    <div class="card bg-primary">
+        <div class="card-body text-center">
+            <p class="card-text">Income</p>
+            <p class="card-text">liczba przychod uzytkownika</p>
+        </div>
+    </div>
+    <div class="card bg-warning">
+        <div class="card-body text-center">
+            <p class="card-text">Expenditure</p>
+            <p class="card-text">Expenditure</p>
+        </div>
+    </div>
+    <div class="card bg-success">
+        <div class="card-body text-center">
+            <p class="card-text">balance</p>
+        </div>
+    </div>
+</div>
+<th:block th:include="templates :: footer_scripts"></th:block>
+</body>
+</html>
