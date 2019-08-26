@@ -7,24 +7,27 @@
 </head>
 <body>
 <th:block th:include="templates :: navigator_bar"></th:block>
-<div class="card-columns">
-    <div class="card bg-primary">
-        <div class="card-body text-center">
-            <p class="card-text">Income</p>
-            <p class="card-text">liczba przychod uzytkownika</p>
-        </div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto align-self-center">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <p class="card-text">Sum of all Amounts</p>
+                    <div class="col" th:text="${amountSum}"></div>
+
+                </div>
+            </div>
     </div>
-    <div class="card bg-warning">
-        <div class="card-body text-center">
-            <p class="card-text">Expenditure</p>
-            <p class="card-text">Expenditure</p>
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto align-self-center">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <p class="card-text">Sum of all Expenditure</p>
+
+
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="card bg-success">
-        <div class="card-body text-center">
-            <p class="card-text">balance</p>
-        </div>
-    </div>
+</div>
 </div>
 <th:block th:include="templates :: footer_scripts"></th:block>
 </body>

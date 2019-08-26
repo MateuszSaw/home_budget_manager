@@ -84,6 +84,7 @@
             <artifactId>popper.js</artifactId>
             <version>1.14.4</version>
         </dependency>
+
     </dependencies>
 
     <build>

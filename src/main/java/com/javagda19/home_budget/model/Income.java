@@ -20,7 +20,6 @@ public class Income {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Min(value = 1)
     private double amount;
 
     @Enumerated(EnumType.STRING)

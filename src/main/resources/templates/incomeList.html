@@ -36,12 +36,14 @@
 
             </div>
         <div class="row colored-row margins" th:classappend="${incomeList} ? return : hidden">
-            <div class="col-6 offset-3">
+            <div class="col-1">
                 <form th:action="@{/income/add}" th:method="get">
                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">add new</button>
                 </form>
             </div>
         </div>
+
+
 
     </div>
 </div>

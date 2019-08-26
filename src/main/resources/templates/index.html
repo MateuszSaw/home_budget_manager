@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <th:block th:include="templates :: headers"></th:block>
@@ -7,12 +7,61 @@
 </head>
 <body>
 <th:block th:include="templates :: navigator_bar"></th:block>
+<div class="container">
+        <div class="row">
+
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto align-self-center">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Sign In</h5>
+                        <form class="form-signin" th:action="@{/login}" th:method="post">
+                            <div class="form-label-group">
+                                <input id="input-email-login" name="username" class="form-control" placeholder="Email address" required autofocus>
+                                <label for="input-email-login">Email address</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="input-password-login" name="password" class="form-control" placeholder="Password" required>
+                                <label for="input-password-login">Password</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox mb-3">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Remember password</label>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto align-self-center">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Register</h5>
+                        <form class="form-signin" th:action="@{/user/register}" th:method="post">
+                            <div class="form-label-group">
+                                <input id="input-email" name="username" type="email" class="form-control" placeholder="Email address" required>
+                                <label for="input-email">Email address</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="input-password" name="password" class="form-control" placeholder="Password" required autofocus>
+                                <label for="input-password">Password</label>
+                            </div>
+                            <div class="form-label-group">
+
+                                <input type="password" id="input-password-confirm" name="password-confirm" class="form-control" placeholder="Password confirm" required autofocus>
+                                <label for="input-password-confirm">Password</label>
+                            </div>
 
 
-<div class="container main-window col-12 offset-3" >
-    <div>
-        <h2>Welcome in Home Budget Manager ! ;)</h2>
-    </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
 <th:block th:include="templates :: footer_scripts"></th:block>
 </body>

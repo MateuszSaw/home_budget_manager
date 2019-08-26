@@ -25,25 +25,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/resources/**", "/static/**","/css/**","/js/**","/images/**","/incl/**").permitAll()
                     .antMatchers("/",
                             "/user/register",
                             "/login").permitAll()
                     .antMatchers("/admin/**").hasRole("ADMIN") /* Na potem, wszystko co w /admin/ musi mieć rolę admina*/
-                .and()
+                .anyRequest().authenticated()
+                .and().csrf().disable()
                 .formLogin()
                     .loginPage("/login")
-                    .successForwardUrl("/")
+                    .successForwardUrl("/homePageAfterLogin")
                     .defaultSuccessUrl("/")
-                    .permitAll()
+                .permitAll()
                 .and()
                 .logout()
                 .logoutUrl("/logout")
                 .invalidateHttpSession(true)
-                .clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login")
+
                 .permitAll();
     }
-
     @Bean
     public DaoAuthenticationProvider getDaoAuthenticationProvider(){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
@@ -53,6 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         return daoAuthenticationProvider;
     }
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

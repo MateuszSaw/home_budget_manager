@@ -29,7 +29,19 @@ public class IncomeService {
     public void addIncome(Income income) {
         incomeRepository.save(income);
     }
-    public void updateIncome (Income income){
+
+    public void updateIncome(Income income) {
         incomeRepository.save(income);
     }
+
+
+    public double getSumOfAmount(List<Income> incomeList) {
+        double sumOfAmount = 0;
+        for (int i = 0; i < incomeList.size(); i++) {
+            sumOfAmount += incomeList.get(i).getAmount();
+        }
+
+        return sumOfAmount;
+    }
 }
+
