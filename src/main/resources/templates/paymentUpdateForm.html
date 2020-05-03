@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:include="templates :: headers"></th:block>
+    <title>Update Payment</title>
+</head>
+<body>
+</div>
+<th:block th:include="templates :: navigator_bar"></th:block>
+<div class="container">
+    <form class="form" th:action="@{/payment/update}" th:method="post" th:object="${payment}">
+        <div class="form-group">
+            <input id="id" type="text" class="form-control" th:field="*{id}" hidden>
+        </div>
+        <div class="row colored-row">
+            <div class="col-2">
+                <label for="payment">Payment:</label>
+            </div>
+            <div class="col-10">
+                <input class="form-control" id="payment" name="payment" required th:field="*{getIncome()}">
+            </div>
+        </div>
+        <div class="row colored-row">
+            <div class="col-2">
+                <label for="target">Target:</label>
+            </div>
+            <div class="col-10">
+                <select id="target" class="form-control" th:field="*{target}">
+                    <option th:each="targetType : ${targetList}" th:value="${targetList.get(name)}"
+                            th:text="${targetList.get(name)}">
+                </select>
+            </div>
+            <div class="row colored-row">
+                <div class="offset-2 col-8">
+                    <input class="form-control" type="submit" value="Update">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<th:block th:include="templates :: footer_scripts"></th:block>
+</body>
+</html>

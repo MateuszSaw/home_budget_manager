@@ -24,14 +24,11 @@ public class AppUser {
     @ManyToMany
     private Set<UserRole> roles;
 
-    @OneToMany (mappedBy = "appUser")
-    private List<Income> incomeList;
-
-    @OneToMany (mappedBy = "appUser" )
-    private List<Expenditure> expenditureList;
+    @OneToMany(mappedBy = "appUser")
+    private List<Target> targetList;
 
     @OneToMany (mappedBy = "appUser")
-    private List<UpcomingPayments> upcomingPaymentsList;
+    private List<Payment> paymentList;
 
     @Override
     public String toString() {

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:include="templates :: headers"></th:block>
+    <title>Update Expenditure</title>
+</head>
+<body>
+<th:block th:include="templates :: navigator_bar"></th:block>
+</div>
+<div class="container">
+    <form class="form" th:action="@{/target/update}" th:method="post" th:object="${target}">
+        <div class="form-group">
+            <input id="id" type="text" class="form-control" th:field="*{id}" hidden>
+        </div>
+        <div class="row colored-row">
+            <div class="col-2">
+                <label for="target">Target Name:</label>
+            </div>
+            <div class="col-10">
+                <input class="form-control" id="target" name="target" required th:field="*{name}">
+            </div>
+        </div>
+        <div class="row colored-row">
+            <div class="col-2">
+                <label for="totalPrice">Total Price:</label>
+            </div>
+            <div class="col-10">
+                <input class="form-control" id="totalPrice" name="totalPrice" required th:field="*{totalPrice}">
+            </div>
+        </div>
+        <div class="col-2">
+            <label for="description">Description:</label>
+        </div>
+        <div class="col-10">
+            <input class="form-control" id="description" name="description" th:field="*{description}">
+        </div>
+    </form>
+</div>
+<div class="row colored-row">
+    <div class="offset-2 col-8">
+        <input class="form-control" type="submit" value="Update">
+    </div>
+</div>
+</form>
+</div>
+<th:block th:include="templates :: footer_scripts"></th:block>
+</body>
+</html>

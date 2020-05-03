@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:include="templates :: headers"></th:block>
+
+    <title>Target List</title>
+</head>
+<body>
+<th:block th:include="templates :: navigator_bar"></th:block>
+<div class="container">
+    <div class="table">
+        <div class="row">
+            <div class="col-12">
+                <h2>Target</h2>
+            </div>
+        </div>
+        <div class="row colored-row header margins">
+            <div class="col-2">Name</div>
+            <div class="col-2">Total price</div>
+            <div class="col-2">Description</div>
+        </div>
+        <div class="row colored-row" th:each="target : ${targetList}">
+            <div class="col-2" th:text="${target.getName()}"></div>
+            <div class="col-2" th:text="${target.getTotalPrice()}"></div>
+            <div class="col-2" th:text="${target.getDescription()}"></div>
+            <form th:action="@{/target/delete}" th:method="get">
+                <input type="text" th:value="${target.getId()}" name="targetId" hidden>
+                <input class="col-12 form-control form-control-sm" type="submit" value="Delete">
+            </form>
+            <form th:action="@{/target/update}" th:method="get">
+                <input type="text" th:value="${target.getId()}" name="targetId" hidden>
+                <input class="col-12 form-control form-control-sm" type="submit" value="Update">
+            </form>
+
+        </div>
+        <div class="row colored-row margins" th:classappend="${targetList} ? return : hidden">
+            <div class="col-6 offset-3">
+                <form th:action="@{/target/add}" th:method="get">
+                    <input class="col-12 form-control form-control-sm" type="submit" value="Add new Target">
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<th:block th:include="templates :: footer_scripts"></th:block>
+</body>
+</html>

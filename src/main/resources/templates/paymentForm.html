@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <th:block th:include="templates :: headers"></th:block>
-    <title>Add new Upcoming Payments</title>
+    <title>Add new Payment</title>
 </head>
 <body>
 <th:block th:include="templates :: navigator_bar"></th:block>
 <div class="container">
-    <form class="form" th:action="@{/upcomingPayments/save}" th:method="post" th:object="${newUpcomingPayments}">
+    <form class="form" th:action="@{/payment/save}" th:method="post" th:object="${newPaymentDTO}" >
         <div class="row colored-row">
             <div class="col-12">
                 <h2>Add new</h2>
@@ -16,28 +16,31 @@
         </div>
         <div class="row colored-row">
             <div class="col-2">
-                <label for="note">Amount:</label>
+                <label for="name">Name of payment:</label>
             </div>
             <div class="col-10">
-                <input class="form-control" id="amount" name="amount" required th:field="*{amount}">
+                <input class="form-control" id="name" name="name" required th:field="*{name}">
             </div>
         </div>
         <div class="row colored-row">
             <div class="col-2">
-                <label for="cat">Category:</label>
+                <label for="income">Payment:</label>
             </div>
             <div class="col-10">
-                <select id="cat" class="form-control" th:field="*{category}">
-                    <option th:each="categoryT : ${expenditureTypes}" th:value="${categoryT}" th:text="${categoryT}">
+                <input class="form-control" id="income" name="income" required th:field="*{income}">
+            </div>
+        </div>
+        <div class="row colored-row">
+            <div class="col-2">
+                <label for="choseTarget">Chose target:</label>
+            </div>
+            <div class="col-10">
+                <select id="choseTarget" class="form-control" name="target" required th:field="*{targetId}">
+                    <option th:each="targetT : ${targetList}"
+                            th:value="${targetT.id}"
+                            th:text="${targetT.name}">
                 </select>
-            </div>
-        </div>
-        <div class="row colored-row">
-            <div class="col-2">
-                <label for="note">Note:</label>
-            </div>
-            <div class="col-10">
-                <input class="form-control" id="note" name="note" th:field="*{note}">
+
             </div>
         </div>
         <div class="row colored-row">

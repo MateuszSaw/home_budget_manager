@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" >
+    <th:block th:include="templates :: headers"></th:block>
+    <title>Payment List</title>
+</head>
+<body>
+<th:block th:include="templates :: navigator_bar"></th:block>
+<div class="container">
+    <div class="table">
+        <div class="row">
+            <div class="col-12">
+                <h2>Payment</h2>
+            </div>
+        </div>
+        <div class="row colored-row header margins">
+            <div class="col-2">Payment</div>
+            <div class="col-2">Target</div>
+            <div class="col-2">Data</div>
+        </div>
+        <div class="row colored-row" th:each="payment : ${paymentList}">
+            <div class="col-2" th:text="${payment.getIncome()}"></div>
+            <div class="col-2" th:text="${payment.getTarget()}"></div>
+            <div class="col-2" th:text="${payment.getPaymentDate()}"></div>
+                <form th:action="@{/payment/delete}" th:method="get">
+                    <input type="text" th:value="${payment.getId()}" name="paymentId" hidden>
+                    <input class="col-12 form-control form-control-sm" type="submit" value="Delete">
+                </form>
+                <form th:action="@{/payment/update}" th:method="get">
+                    <input type="text" th:value="${payment.getId()}" name="paymentId" hidden>
+                    <input class="col-12 form-control form-control-sm" type="submit" value="Update">
+                </form>
+
+            </div>
+        <div class="row colored-row margins" th:classappend="${paymentList} ? return : hidden">
+            <div class="col-1">
+                <form th:action="@{/payment/add}" th:method="get">
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">add new</button>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<th:block th:include="templates :: footer_scripts"></th:block>
+</body>
+</html>
